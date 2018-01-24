@@ -1,0 +1,14 @@
+{
+  "name": "derivejs-demo-spaceships",
+  "version": "1.0.0",
+  "description": "A demonstration for DeriveJS framework usage, part of the tutorial in npmjs.com/package/derivejs.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Yuval Aloni",
+  "license": "ISC",
+  "dependencies": {
+    "derivejs": "^0.4.0"
+  }
+}
