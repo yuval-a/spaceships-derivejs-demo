@@ -7,7 +7,8 @@ module.exports = new Promise( (resolve,reject)=> {
     ({
         dbUrl: "mongodb://localhost:27017/",
         dbName: "spaceshipyard",
-        debugMode: false
+        debugMode: false,
+        defaultMethodsLog: true
     })
     .then(
         async Model=> {
@@ -34,7 +35,7 @@ module.exports = new Promise( (resolve,reject)=> {
                         target.integrityHull -= this._DAMAGE;
                     }
                 },
-                _created: function() {
+                _inserted: function() {
                     if (this.$ready) this.$ready.call(this);
                 },
                 // For a weapon-ready callback
@@ -60,7 +61,7 @@ module.exports = new Promise( (resolve,reject)=> {
             
             Models.Spaceship = Model({
                 _name: "",
-                TYPE: "",
+                _TYPE: "",
                 shields: {
                     up: false,
                     percent: 100
@@ -79,18 +80,19 @@ module.exports = new Promise( (resolve,reject)=> {
                     console.log (this._name+": shields are down");
                 },
                 captain: "",
+                
                 // Listen to changes on this properties
                 $Listen: [ "shields.percent", "integrityHull" ]
             }, "Spaceship");
             
             Models.Cruiser = Models.Spaceship
             .derive({
-                TYPE_: "Cruiser"
+                _TYPE_: "Cruiser"
             });
  
             Models.Battleship = Models.Spaceship
             .derive({
-                TYPE_: "Battleship",
+                _TYPE_: "Battleship",
                 weapons: [],
                 attack: function(target, weaponIndex) {
                     Models.Weapon.get(this.weapons[weaponIndex])

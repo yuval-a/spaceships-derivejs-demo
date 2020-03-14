@@ -1,7 +1,7 @@
 require ("./Models")
 .then(async Models=> {
  
-    // Save convient references to our data models
+    // Save convinient references to our data models
     const PhotonTorpedos  = Models.PhotonTorpedos;
     const CrewMember = Models.CrewMember;
     const Cruiser = Models.Cruiser;
@@ -67,7 +67,7 @@ require ("./Models")
         console.log ("Photon Torpedos ready")
         battle();
     }) );
- 
+
     /* 
     // You can also use Spaceship.map, but this is done here for the sake of example:
     restore()

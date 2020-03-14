@@ -9,6 +9,6 @@
   "author": "Yuval Aloni",
   "license": "ISC",
   "dependencies": {
-    "derivejs": "^0.5.1"
+    "derivejs": "^1.1.0"
   }
 }
